@@ -16,7 +16,7 @@
             color: white;
             text-align: center;
             font-size: 2em;
-            margin-bottom: 20px; /* Spacing between the text and the GIF */
+            margin-bottom: 20px; 
         }
 
         .center-gif {
@@ -30,50 +30,50 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px; /* Spacing between the GIF and the buttons */
+            margin-top: 20px; 
         }
 
         .movingButton, .staticButton {
             margin: 0 10px;
             cursor: pointer;
-            background-color: #f06292; /* A vivid pink color for more pop */
-            color: rgb(1, 1, 1); /* White text to stand out */
-            font-family: 'Helvetica', 'Arial', sans-serif; /* A clean and modern font */
-            font-size: 20px; /* Larger font size for visibility */
-            border-radius: 25px; /* Full rounded corners for a pill shape */
-            border: none; /* Remove the border for a cleaner look */
-            padding: 15px 30px; /* Generous padding for a larger, touch-friendly button */
-            box-shadow: 0 5px 15px rgba(240, 98, 146, 0.4); /* A more pronounced shadow for depth */
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Smooth transition for interactive effects */
-            outline: none; /* Remove the outline to clean up the focus state */
-            user-select: none; /* Prevent text selection */
-            position: relative; /* Ensures the button is positioned in the document flow */
-            overflow: hidden; /* Clips any child elements to the button's round borders */
+            background-color: #f06292; 
+            color: rgb(1, 1, 1); 
+            font-family: 'Helvetica', 'Arial', sans-serif; 
+            font-size: 20px; 
+            border-radius: 25px; 
+            border: none;
+            padding: 15px 30px; 
+            box-shadow: 0 5px 15px rgba(240, 98, 146, 0.4); 
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; 
+            outline: none; 
+            user-select: none; 
+            position: relative; 
+            overflow: hidden; 
         }
 
-        /* Remove the initial absolute positioning from .movingButton */
+
         .movingButton {
             cursor: pointer;
             background-color: pink;
             font-size: 15px;
             border-radius: 10px;
             border-width: 1px;
-            text-transform: uppercase; /* Uppercase text */
+            text-transform: uppercase; 
             width: 100px;
-            transition: transform 0.3s, box-shadow 0.3s; /* Transition for the hover effect */
-            position: absolute; /* Set to absolute to allow for positioning */
+            transition: transform 0.3s, box-shadow 0.3s; 
+            position: absolute; 
             transition: left 0.5s, top 0.5s; /* Transition for moving */
             margin-right: -150px;
             
         }
-        /* Animation for moving button to draw attention */
+        
         @keyframes pulseAnimation {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
 
-        /* Apply the same styling to the staticButton */
+
         .staticButton {
             cursor: pointer;
             background-color: pink;
@@ -84,27 +84,27 @@
             height: 63px;
             transition: transform 0.3s, box-shadow 0.3s; /* Transition for the hover effect */
             margin-right: 150px;
-            animation: pulseAnimation 1s infinite; /* Apply the animation to the moving button */
+            animation: pulseAnimation 1s infinite; 
         }
 
-        /* Add hover effect */
+
         .movingButton:hover, .staticButton:hover {
-            background-color: #ff94c2; /* A lighter pink on hover for visual feedback */
-            transform: translateY(-2px); /* A subtle lift effect on hover */
-            box-shadow: 0 7px 20px rgba(240, 98, 146, 0.5); /* A larger shadow on hover for depth */
+            background-color: #ff94c2; 
+            transform: translateY(-2px); 
+            box-shadow: 0 7px 20px rgba(240, 98, 146, 0.5); 
         }
 
 
         html {
             margin: 0;
             padding: 0;
-            height: 100%; /* Ensure the body takes the full viewport height */
+            height: 100%; 
         }
 
         body {
             margin: 0;
             padding: 0;
-            height: 100%; /* Ensure the body takes the full viewport height */
+            height: 100%; 
             background-color: rgb(137, 207, 240)
         }
 
@@ -124,6 +124,7 @@
     </div>
 
     <script>
+        
 // Change the position of the moving button on mouseover
 document.querySelectorAll(".movingButton").forEach(movingButton => {
     movingButton.onmouseover = function() {
@@ -131,7 +132,7 @@ document.querySelectorAll(".movingButton").forEach(movingButton => {
         var contentContainer = document.querySelector(".content-container");
         var containerRect = contentContainer.getBoundingClientRect();
 
-        var buffer = 10; // A buffer zone to prevent overlap (can be adjusted)
+        var buffer = 10;
         var newX, newY, overlaps;
 
         // Calculate maximum x and y values
@@ -147,7 +148,6 @@ document.querySelectorAll(".movingButton").forEach(movingButton => {
             overlaps = newX < containerRect.left || newX + this.offsetWidth > containerRect.right ||
                        newY < containerRect.top || newY + this.offsetHeight > containerRect.bottom;
 
-            // If there's no overlap, apply the new positions
             if (!overlaps) {
                 this.style.left = `${newX}px`;
                 this.style.top = `${newY}px`;
